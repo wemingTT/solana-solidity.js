@@ -318,6 +318,17 @@
   dependencies:
     buffer "~6.0.3"
 
+"@solana/solidity@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@solana/solidity/-/solidity-0.0.18.tgz#caf5448e164dfa46d05b1d4f2b6c29c1e6eaf203"
+  integrity sha512-MHlBULl3TOY6i6fuDoyS1PzfALLxth9gb9QRvVn2FpBxs3g3mWpwa+QE3n8HbICMXIa22ac3yjvF9YMODu3rcw==
+  dependencies:
+    "@ethersproject/abi" "^5.5.0"
+    "@ethersproject/bytes" "^5.5.0"
+    "@ethersproject/keccak256" "^5.5.0"
+    "@ethersproject/properties" "^5.5.0"
+    "@solana/web3.js" "^1.30.2"
+
 "@solana/web3.js@^1.30.2":
   version "1.30.2"
   resolved "https://registry.yarnpkg.com/@solana/web3.js/-/web3.js-1.30.2.tgz#e85da75e0825dc64f53eb64a1ff0115b27bec135"
