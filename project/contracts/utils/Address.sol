@@ -30,9 +30,9 @@ library Address {
         // constructor execution.
 
         uint256 size;
-        // assembly {
-        //     size := extcodesize(account)
-        // }
+        assembly {
+            size := extcodesize(account)
+        }
         return size > 0;
     }
 
@@ -156,7 +156,7 @@ library Address {
     ) internal view returns (bytes memory) {
         require(isContract(target), "Address: static call to non-contract");
 
-        (bool success, bytes memory returndata) = target.functionStaticcall(data);
+        (bool success, bytes memory returndata) = target.staticcall(data);
         return verifyCallResult(success, returndata, errorMessage);
     }
 
@@ -176,14 +176,14 @@ library Address {
      *
      * _Available since v3.4._
      */
-    function delegateCall(
+    function functionDelegateCall(
         address target,
         bytes memory data,
         string memory errorMessage
     ) internal returns (bytes memory) {
         require(isContract(target), "Address: delegate call to non-contract");
 
-        (bool success, bytes memory returndata) = target.functionDelegatecall(data);
+        (bool success, bytes memory returndata) = target.delegatecall(data);
         return verifyCallResult(success, returndata, errorMessage);
     }
 
@@ -205,10 +205,10 @@ library Address {
             if (returndata.length > 0) {
                 // The easiest way to bubble the revert reason is using memory via assembly
 
-                // assembly {
-                //     let returndata_size := mload(returndata)
-                //     revert(add(32, returndata), returndata_size)
-                // }
+                assembly {
+                    let returndata_size := mload(returndata)
+                    revert(add(32, returndata), returndata_size)
+                }
             } else {
                 revert(errorMessage);
             }
